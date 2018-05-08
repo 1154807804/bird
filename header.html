@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+	</head>
+	<body>
+		<!--start header-->
+		<div class="header">
+			<div class="inner">
+				<div class="logo fl">
+					<img src="img/logo.png"/>
+				</div>
+				<div class="nav fr">
+					<div class="firstPage fl">
+						<h1 class="now" onclick="javascript:window.open('index.html')">首页</h1>
+					</div>
+					<div class="firstPage fl zstudy">
+						<h1>
+							小鸟掌学
+							<span class="imgi"></span>
+							<ul style="overflow: hidden;height: 240px;">
+								<li onclick="javascript:window.open('aboutxiaoniao.html')"><p>小鸟掌学主页</p><i></i></li>
+								<li onclick="javascript:window.open('aboutxiaoniao.html#1');"><p>小鸟掌学概述</p><i></i></li>
+								<li onclick="javascript:window.open('aboutxiaoniao.html#2');"><p>对企业的价值</p><i></i></li>
+								<li onclick="javascript:window.open('aboutxiaoniao.html#3');"><p>小鸟掌云</p><i></i></li>
+								<li onclick="javascript:window.open('aboutxiaoniao.html#4');"><p>微课联盟</p><i></i></li>
+								<li onclick="javascript:window.open('aboutxiaoniao.html#4');"><p>APP下载</p><i></i></li>
+							</ul>
+						</h1>
+					</div>
+					<div class="firstPage fl">
+						<h1 onclick="javascript:window.open('action.html')">小鸟动态</h1>
+					</div>
+					<div class="firstPage fl zstudy">
+						<h1>
+							企业文化
+							<span class="imgi"></span>
+							<ul style="overflow: hidden;height: 120px;">
+								<li onclick="javascript:window.open('contact.html?type=companyIdea');"><p>公司理念</p><i></i></li>
+								<li onclick="javascript:window.open('contact.html?type=companyCulture');"><p>公司文化</p><i></i></li>
+								<li onclick="javascript:window.open('contact.html?type=companyEnvironment');"><p>公司氛围</p><i></i></li>
+							</ul>
+						</h1>
+					</div>
+					<div class="firstPage fl zstudy">
+						<h1>
+							人力资源
+							<span class="imgi"></span>
+							<ul style="overflow: hidden;height: 120px;">
+								<li onclick="javascript:window.open('contact.html?type=talents');"><p>人才理念</p><i></i></li>
+								<li onclick="javascript:window.open('contact.html?type=team');"><p>团队介绍</p><i></i></li>
+								<li onclick="javascript:window.open('contact.html?type=joinUs');"><p>招聘信息</p><i></i></li>
+							</ul>
+						</h1>
+					</div>
+					<div class="firstPage fl">
+						<h1 onclick="javascript:window.open('contact.html?type=telUs');">联系我们</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end header-->
+	</body>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/move.js"></script>
+	<script>
+		//悬浮出现下拉菜单
+		$(".firstPage h1").hover(function(){
+			$(this).find('ul').stop().slideDown(400,"elasticOut");
+		},function(){
+			$(this).find('ul').stop().slideUp(400);
+		})
+		//点击事件
+		$(".firstPage").click(function(){
+			$(this).find("h1").addClass("now");
+			$(this).siblings().find("h1").removeClass("now");
+		})
+	</script>
+</html>

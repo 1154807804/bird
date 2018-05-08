@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小鸟动态</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/action.css"/>
+		<script src="js/jquery-1.8.3.min.js"></script>
+	</head>
+	<body>
+		<!--start header-->
+		<div id="header"></div>
+		<!--end header-->
+		<!--start contact_lianxi-->
+		<div class="birdaction">
+			<h1 class="title_lianxi" style="line-height: 60px;">小鸟动态</h1>
+			<h2>About Company</h2>
+			<img style="margin-top: 20px;margin-bottom: 70px;" src="img/three_points01.png"/>
+			<h1 class="bird_list">
+				列表
+				<span class="pen"></span>
+			</h1>
+			
+			<!--模板-->
+	        <!--<div class="bird_content" id="box1" style="display:none;">
+	            <div class="bird_content_fir" articleid="$articleId$">
+	                <div class="bird_content_firimg"><img src="$articleCover$"></div>
+	                <div class="bird_content_firtext">
+	                    <p class="titlezhuoxin">$articleTitle$</p>
+	                    <p class="date">$updateTime$</p>
+	                    <p>$describe$</p>
+	                </div>-->
+	                <!--<img class="list_img_over_xiaojiantou" src="img/list_img_over_xiaojiantou.png">-->
+	            <!--</div>-->
+	        <!--</div>-->
+	        
+                   
+             <!--模板结束-->
+			<div class="bird_content" id="box">
+				<!--<div class="bird_content_fir">
+					<div class="bird_content_firimg">
+						<img src="img/list_img01.jpg"/>
+					</div>
+					<div class="bird_content_firtext">
+						<p class="titlezhuoxin">卓新思创重装出发</p>
+						<p class="date">2018-02-03</p>
+						<p>小鸟掌学创建于2014年初，起源服务于四川省专业技术人员继续教育基地的在线培训平台</p>
+					</div>
+				</div>-->
+			</div>
+			
+			<img class="gengd" style="margin: 30px auto 0;" src="img/list_gomore_bg.jpg"/>
+			<div class="list_btn"></div>
+		</div>
+		<!--end contact_lianxi-->
+		<!--start lianfooter-->
+		<div class="birdfooter"></div>
+		<!--end lianfooter-->
+		<!--start footer-->
+		<div id="footer"></div>
+		<!--end footer-->
+		<!--start return_top-->
+		<div class="return_top" style="display: block;opacity: 1;bottom: 200px;">
+			<div class="top"></div>
+			<div class="xinfeng"></div>
+		</div>
+		<!--end return_top-->
+	</body>
+	<script>
+	//第二种开始		
+	$(function(){
+       	$("#header").load("header.html");
+       	$("#footer").load("footer.html");
+       
+       	//返回顶部
+			$(window).scroll(function(){
+        		if($(window).scrollTop()>=1000){
+            		$('.return_top').fadeIn(300);
+        		}else{
+            		$('.return_top').fadeOut(300);
+        		}
+    		});
+   	 		$('.top').click(function (){
+        		$('html,body').animate({'scrollTop':'0px'},800)
+			})
+       	
+       	
+       	var ajax = $("#box");
+       	var start = 0;
+       	var num = 6;
+       	var b = 1;
+       	function get_data(start,num){
+           	$.get('js/listone.json',function(data){
+               		data = eval(data);
+               		data = data["list"];
+               		console.log(data);
+               		var L = data.length;
+               		if ((start+num) > L){
+                   		num = L - start;
+                   		b = 0;
+               		}
+               		for(var i = start;i<(start+num);i++){
+                   		var content = "";
+                   		content = content + "<div class='bird_content_fir'>"+
+                           "<div class='bird_content_firimg'>" +
+                           "<img src='"+data[i].coverImg+"'></div>"+
+                           "<div class='bird_content_firtext'>" +
+                           "<p class='titlezhuoxin'>"+data[i].title+"</p>" +
+                           "<p class='date'>"+data[i].creatAt+"</p>" +
+                           "<p>"+data[i].describe+"</p></div>"+
+                           "</div>";
+                    	ajax.append(content);
+               		}
+           	});
+           	return start+num;
+       	}
+       	start = get_data(start,num);
+       	$(".list_btn").click(function(){
+           	if(b == 0){
+               	$(".gengd").attr("src","img/list_gomore_bg_nomore.jpg");
+           	}else{
+               	start = get_data(start,num);
+           	}
+       	})
+    })
+//第二种结束
+//
+// $(function(){
+//     	$("#header").load("header.html");
+//     	$("#footer").load("footer.html");
+       	
+//	function(){
+//      var index=0;
+//      if(index==0){
+//          ajax()
+//      }
+//      $(".list_btn").click(function(){
+//          index++;
+//          if (index<3){
+//              ajax();
+//          }else {
+//              $(".gengd").attr("src","img/list_gomore_bg.jpg")
+//          }
+//      });
+//      function ajax(){
+//          var xhr = new XMLHttpRequest();
+//          xhr.open("get","js/action.json");
+//          xhr.send(null);
+//          xhr.onreadystatechange=function(){
+//              if(xhr.readyState==4){
+//                  if(xhr.status==200){
+//                      var shuju=JSON.parse(xhr.responseText);
+//                      if(index==0){
+//                          $("#box").html("");
+//                      }
+//                      var data=shuju[index].data.list;
+//                      for(var i=0;i<data.length;i++){
+//                          //获取item中的数据 然后替换掉
+//                          var item=$("#box1").html().replace("$title$",data[i].title)
+//                              .replace("$img$",data[i].coverImg)
+//                              .replace("$id$",data[i].sysId);
+//                          //将获取的数据添加到box1里面
+//                          $("#box").append(item);
+//                      }
+//                  }
+//              }
+//          }
+//      }
+//  }
+//})
+		
+		
+		
+	</script>
+</html>

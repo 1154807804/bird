@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<script src="js/jquery-1.8.3.min.js"></script>
+	</head>
+	<body>
+		<!--start footer-->
+		<div class="footer">
+			<div class="inner">
+				<audio class="mp3" src="audio/sound00.mp3"></audio>
+				<div class="music">
+					<span></span>
+					<span class="two"></span>
+					<span class="three"></span>
+					<span class="four"></span>
+					<span class="five"></span>
+					<span class="six"></span>
+					<span class="seven"></span>
+				</div>
+				<!--<div class="music_music"></div>-->
+				<a href="www.miitbeian.gov.cn/state/outPortal/loginPortal.action;jsessionid=ktUxXu7-c7W7vnKNf0hZ_7wZ_VhZL3I4Aw8zAHa2VfrwImeGCJZJ!-497320647">
+					<div class="shu">蜀ICP备16002451号</div>
+				</a>
+			</div>
+		</div>
+		<!--end footer-->
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".footer .music span").hover(function(){
+				var num=$(this).index();
+				$(".mp3").attr('src','audio/sound0'+num+'.mp3').trigger("play");
+			})
+		})
+	</script>
+</html>

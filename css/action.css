@@ -1,0 +1,126 @@
+.birdaction{
+	width: 1100px;
+    margin: 0 auto;
+    min-height: 500px;
+    padding-top: 120px;
+    overflow: hidden;
+    background: none;
+}
+.birdaction>.title_lianxi{
+    line-height: 60px;
+}
+.birdaction>h2{
+	text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 6px;
+    color: #311759;
+}
+.birdaction .title_lianxi{
+    text-align: center;
+    font-size: 54px;
+    color: #311759;
+}
+.birdaction>img{
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+}
+.bird_list{
+    color: #311759;
+    font-size: 30px;
+    background: url(../img/pen_line_long.png) no-repeat 0 58px;
+    height: 60px;
+    position: relative;
+}
+.bird_list .pen{
+    width: 61px;
+    height: 58px;
+    background: url(../img/pen_list.png) no-repeat;
+    position: absolute;
+    right: 0px;
+    top: 7px;
+    cursor: pointer;
+}
+.bird_content{
+    padding-top: 40px;
+    overflow: hidden;
+    width: 1130px;
+}
+.bird_content_fir{
+    width: 513px;
+    height: 202px;
+    float: left;
+    background: #fff;
+    padding: 36px 0 0 20px;
+    margin: 0 20px 30px 0;
+    border: 1px solid #fff;
+    cursor: pointer;
+    position: relative;
+}
+.bird_content_fir:hover{
+    border-color: #86759e;
+    transform: translateY(-6px);
+    transition: all 0.3s ease 0s;
+}
+.bird_content_fir .bird_content_firimg{
+    height: 168px;
+    width: 260px;
+    overflow: hidden;
+    float: left;
+    margin-right: 17px;
+}
+.bird_content_fir .bird_content_firimg img{
+    width: 260px;
+}
+.bird_content_fir .bird_content_firimg:hover>img{
+    transition: all 0.3s ease 0s;
+    top: 36px;
+    left: 50px;
+}
+.bird_content_fir .bird_content_firtext{
+    width: 221px;
+    float: left;
+}
+.bird_content_fir .titlezhuoxin{
+    font-size: 20px;
+    color: #454548;
+    line-height: 26px;
+    max-height: 53px;
+    overflow: hidden;
+    padding-top: 15px;
+}
+.bird_content_fir .date{
+    color: #6b6a6f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding-top: 2px;
+}
+.bird_content_fir p{
+    padding-top: 8px;
+    color: #47464a;
+    line-height: 25px;
+    max-height: 75px;
+    overflow: hidden;
+    font-family: KaiTi_GB2312;
+    letter-spacing: 0px;
+}
+.list_btn{
+    height: 58px;
+    width: 58px;
+    background: url(../img/lis_more_btn_bg.png) no-repeat 0 -58px;
+    margin: 15px auto 130px;
+    cursor: pointer;
+}
+.list_btn:hover{
+	background-position:0 0;
+	transition:all 0.3s ease 0s;
+}
+/*footerimg*/
+.birdfooter{
+    background: url(../img/map_bottomimg.png) top center no-repeat;
+    height: 33px;
+    width: 100%;
+    min-width: 1100px;
+}
